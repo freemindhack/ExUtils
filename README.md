@@ -2,3 +2,21 @@
 
 - 部分参考自https://github.com/Jude95/Utils
 - 搜集整理了一些常用工具类
+
+### 使用方法
+
+- 在模块的gradle中添加
+```'compile com.kermit:exutils:1.0.1'```
+
+
+```
+    public class App extends Application {
+        @Override
+        public void onCreate() {
+            super.onCreate();
+            ExUtils.initialize(this);
+        }
+    }
+```
+
+- 控制了全局Context的使用（即尽量把context交给外部获取）

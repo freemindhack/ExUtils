@@ -12,7 +12,7 @@ ext {
     siteUrl = 'https://github.com/Kermit95/ExUtils'
     gitUrl = 'https://github.com/Kermit95/ExUtils'
 
-    libraryVersion = '1.0.0'//版本号
+    libraryVersion = '1.0.1'//版本号
     libraryName = 'ex-utils'//项目名字，没什么用
     libraryDescription = 'some android tools'//项目描述，没什么用
 
