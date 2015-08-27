@@ -8,7 +8,7 @@
 - 在模块的gradle中添加
 ```'compile com.kermit:exutils:1.0.1'```
 
-
+- 创建如下类，并初始化工具类
 ```
     public class App extends Application {
         @Override
