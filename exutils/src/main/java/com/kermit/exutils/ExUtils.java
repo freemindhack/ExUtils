@@ -101,12 +101,12 @@ public class ExUtils {
         return d;
     }
 
-    public static void Toast(Context context, String text){
-        Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+    public static void Toast(String text){
+        Toast.makeText(mApplicationContext, text, Toast.LENGTH_SHORT).show();
     }
 
-    public static void ToastLong(Context context, String text){
-        Toast.makeText(context, text, Toast.LENGTH_LONG).show();
+    public static void ToastLong(String text){
+        Toast.makeText(mApplicationContext, text, Toast.LENGTH_LONG).show();
     }
 
     public static boolean isValidEmail(CharSequence target) {
