@@ -1,4 +1,4 @@
-package com.kermit.exutils;
+package com.kermit.exutils.utils;
 
 /**
  * Created by Kermit on 15-8-26.

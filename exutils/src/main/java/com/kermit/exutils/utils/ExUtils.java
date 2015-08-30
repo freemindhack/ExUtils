@@ -1,4 +1,4 @@
-package com.kermit.exutils;
+package com.kermit.exutils.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

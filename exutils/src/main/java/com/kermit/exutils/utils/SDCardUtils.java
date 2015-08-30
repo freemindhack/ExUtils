@@ -1,4 +1,4 @@
-package com.kermit.exutils;
+package com.kermit.exutils.utils;
 
 
 import android.os.Environment;

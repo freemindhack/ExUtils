@@ -1,4 +1,4 @@
-package com.kermit.exutils;
+package com.kermit.exutils.utils;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
