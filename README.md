@@ -1,4 +1,4 @@
-### 各种开发工具
+### 一些开发工具
 
 - 部分参考自https://github.com/Jude95
 - 搜集整理了一些常用工具类
@@ -6,7 +6,7 @@
 ### 使用方法
 
 - 在模块的gradle中添加
-```'compile com.kermit:exutils:1.0.1'```
+```'compile com.kermit:exutils:1.0.2'```
 
 - 创建如下类，并初始化工具类
 ```
