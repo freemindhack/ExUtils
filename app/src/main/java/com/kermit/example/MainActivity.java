@@ -37,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                return null;
+                operation.setTaskParams(new String[]{"hello?"});
+
+                return operation;
             }
         })
                 .next(new Task(Task.RunningStatus.UI_THREAD) {
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
                     public TaskOperation onExecute(TaskOperation operation) {
 
                         mTextView.setText("ok!");
+
+                        Toast.makeText(MainActivity.this, (String)operation.getTaskParams()[0], Toast.LENGTH_SHORT).show();
 
                         return null;
                     }
