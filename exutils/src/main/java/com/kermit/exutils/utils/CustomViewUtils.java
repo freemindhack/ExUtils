@@ -1,6 +1,5 @@
 package com.kermit.exutils.utils;
 
-import android.graphics.drawable.Drawable;
 import android.view.View;
 
 /**

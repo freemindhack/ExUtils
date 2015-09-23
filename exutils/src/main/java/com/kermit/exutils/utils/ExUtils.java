@@ -9,14 +9,13 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.util.DisplayMetrics;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.Toast;
+
+import com.kermit.exutils.model.ModelManager;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -43,6 +42,7 @@ public class ExUtils {
 
     public static void initialize(Application app){
         mApplicationContext = app.getApplicationContext();
+        ModelManager.init(mApplicationContext);
     }
 
     public static int dip2dx(float dpValue){
