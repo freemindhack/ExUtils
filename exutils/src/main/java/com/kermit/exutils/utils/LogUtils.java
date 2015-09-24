@@ -10,36 +10,41 @@ import com.kermit.exutils.BuildConfig;
  */
 public class LogUtils {
 
-    public static void v(String tag, String msg) {
+    private static String Tag;
+
+    public static void setTag(String tag){
+        Tag = tag;
+    }
+
+    public static void v(String msg) {
         if (BuildConfig.DEBUG) {
-            Log.v(tag, msg);
+            Log.v(Tag, msg);
         }
     }
 
-    public static void d(String tag, String msg) {
+    public static void d(String msg) {
         if (BuildConfig.DEBUG) {
-            Log.d(tag, msg);
-        }
-
-    }
-
-    public static void i(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
-            Log.i(tag, msg);
-        }
-    }
-
-    public static void w(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
-            Log.w(tag, msg);
+            Log.d(Tag, msg);
         }
 
     }
 
-    public static void e(String tag, String msg) {
+    public static void i(String msg) {
         if (BuildConfig.DEBUG) {
-            Log.e(tag, msg);
+            Log.i(Tag, msg);
         }
     }
 
+    public static void w(String msg) {
+        if (BuildConfig.DEBUG) {
+            Log.w(Tag, msg);
+        }
+
+    }
+
+    public static void e(String msg) {
+        if (BuildConfig.DEBUG) {
+            Log.e(Tag, msg);
+        }
+    }
 }

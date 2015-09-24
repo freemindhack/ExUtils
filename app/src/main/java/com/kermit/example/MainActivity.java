@@ -3,11 +3,11 @@ package com.kermit.example;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.kermit.exutils.taskmanager.Task;
 import com.kermit.exutils.taskmanager.TaskManager;
 import com.kermit.exutils.taskmanager.TaskOperation;
+import com.kermit.exutils.utils.ExUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
         mTextView = new TextView(this);
         mTextView.setText("lalalalalal");
         setContentView(mTextView);
+        ExUtils.Toast("sdfasdf");
 
         TaskManager taskManager = new TaskManager("show_textview");
         taskManager.setStateChangeListener(new TaskManager.IStateChangeListener() {
             @Override
             public void onStateChanged(TaskManager taskManager, TaskManager.State oldSate, TaskManager.State newState) {
-                Toast.makeText(MainActivity.this, " onStateChanged state = " + newState, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
                     public TaskOperation onExecute(TaskOperation operation) {
 
                         mTextView.setText("ok!");
-
-                        Toast.makeText(MainActivity.this, (String)operation.getTaskParams()[0], Toast.LENGTH_SHORT).show();
 
                         return null;
                     }

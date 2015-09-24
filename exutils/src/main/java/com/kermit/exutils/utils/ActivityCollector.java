@@ -15,7 +15,7 @@ public class ActivityCollector {
     private static ActivityCollector instance;
 
 
-    public ActivityCollector getInstance(){
+    public static ActivityCollector getInstance(){
         if (instance == null){
             instance = new ActivityCollector();
         }

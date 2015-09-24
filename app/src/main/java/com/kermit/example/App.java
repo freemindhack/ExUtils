@@ -2,7 +2,6 @@ package com.kermit.example;
 
 import android.app.Application;
 
-import com.kermit.exutils.model.ModelManager;
 import com.kermit.exutils.utils.ExUtils;
 
 /**
@@ -14,8 +13,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         ExUtils.initialize(this);
-        ModelManager.init(this);
     }
 }
