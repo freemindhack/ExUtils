@@ -20,7 +20,9 @@ public class TaskManager {
     private static final int MESSAGE_POST_EXECUTE = 0x01;
     private static final int MESSAGE_POST_PROGRESS = 0x02;
 
-
+    /**
+     * 任务执行的状态
+     */
     public enum State{
 
         NEW,
@@ -32,6 +34,9 @@ public class TaskManager {
         FINISHED,
     }
 
+    /**
+     * 任务管理器的状态
+     */
     public enum TaskManagerState{
 
         CONTINUE,
@@ -43,24 +48,48 @@ public class TaskManager {
         void onStateChanged(TaskManager taskManager, State oldSate, State newState);
     }
 
+    /**
+     * 任务管理器集合
+     */
     private static HashMap<String, TaskManager> managerHashMap = new HashMap<>();
 
+    /**
+     * 任务列表
+     */
     private LinkedList<Task> mTaskList = new LinkedList<>();
 
+    /**
+     * 任务操作器
+     */
     private TaskOperation mTaskOperation = new TaskOperation();
 
+    /**
+     * 工作线程
+     */
     private HandlerThread mHandlerThread = null;
 
+    /**
+     * 正在执行的任务
+     */
     private Task curTask = null;
 
     private State mState = State.NEW;
 
+    /**
+     * 任务管理的名称
+     */
     private String mName = null;
 
     private IStateChangeListener mListener = null;
 
+    /**
+     *
+     */
     private Handler threadHandler = null;
 
+    /**
+     * 处理UI任务
+     */
     private Handler uiHandler = new Handler(Looper.getMainLooper()){
         @Override
         public void handleMessage(Message msg) {
@@ -83,6 +112,11 @@ public class TaskManager {
         mName = name;
     }
 
+    /**
+     * All task should be added by invoke this method.
+     * @param task
+     * @returnn
+     */
     public TaskManager next(Task task){
         if (null != task){
             synchronized (mTaskList){

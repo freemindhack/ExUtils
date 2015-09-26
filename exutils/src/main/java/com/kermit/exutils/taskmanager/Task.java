@@ -18,6 +18,9 @@ public abstract class Task {
 
     private volatile RunningStatus mRunStatus = RunningStatus.UI_THREAD;
 
+    /**
+     * 用于标识任务状态
+     */
     public enum Status{
 
         PENDING,
@@ -28,6 +31,9 @@ public abstract class Task {
 
     }
 
+    /**
+     * 用于标识任务形式
+     */
     public enum RunningStatus{
 
         WORK_THREAD,
@@ -47,8 +53,8 @@ public abstract class Task {
     }
 
     public Task(RunningStatus runStatus, String name){
-        mRunStatus = runStatus;
-        mName = name;
+        this.mRunStatus = runStatus;
+        this.mName = name;
     }
 
     public abstract TaskOperation onExecute(TaskOperation operation);
@@ -77,14 +83,6 @@ public abstract class Task {
 
     public void setName(String name) {
         mName = name;
-    }
-
-    public AtomicBoolean getCancelled() {
-        return mCancelled;
-    }
-
-    public void setCancelled(AtomicBoolean cancelled) {
-        mCancelled = cancelled;
     }
 
     public Status getStatus() {

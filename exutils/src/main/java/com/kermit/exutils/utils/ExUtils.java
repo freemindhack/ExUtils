@@ -40,6 +40,10 @@ public class ExUtils {
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
+    public static void setDebug(boolean isDebug){
+        LogUtils.DEBUG = isDebug;
+    }
+
     public static void initialize(Application app){
         mApplicationContext = app.getApplicationContext();
         ModelManager.init(mApplicationContext);
