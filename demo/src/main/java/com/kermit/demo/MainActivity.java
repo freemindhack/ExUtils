@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(mTextView);
 
         //需要在app类里ExUtils.setDebug(true)，才会打印log
-        LogUtils.setTag(TAG);
-        LogUtils.i("start");
         LogUtils.i("Hey", "start");
 
         TaskManager taskManager = new TaskManager("show_textview");
@@ -34,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         taskManager.setStateChangeListener(new TaskManager.IStateChangeListener() {
             @Override
             public void onStateChanged(TaskManager taskManager, TaskManager.State oldSate, TaskManager.State newState) {
-                LogUtils.i("oldState: " + oldSate + "  " + "newState: " + newState);
             }
         });
 
