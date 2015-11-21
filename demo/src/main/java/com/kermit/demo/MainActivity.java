@@ -1,14 +1,12 @@
-package com.kermit.example;
+package com.kermit.demo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.kermit.exutils.taskmanager.Task;
 import com.kermit.exutils.taskmanager.TaskManager;
 import com.kermit.exutils.taskmanager.TaskOperation;
-import com.kermit.exutils.utils.ExUtils;
 import com.kermit.exutils.utils.LogUtils;
 
 public class MainActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.kermit.example;
+package com.kermit.demo;
 
 import android.app.Application;
 

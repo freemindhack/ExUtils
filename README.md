@@ -23,7 +23,6 @@
 - utils类
 - TaskManager
 >是对handler进行的一个封装，思路来自以前看过的一个博客，将原始代码中提供Looper的线程替换成了HandlerThread。
-使用起来十分方便：
 
         //构造器中指定task是在后台线程还是UI线程执行
         taskManager.next(new Task(Task.RunningStatus.WORK_THREAD) {

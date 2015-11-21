@@ -49,7 +49,7 @@ public class ExUtils {
         ModelManager.init(mApplicationContext);
     }
 
-    public static int dip2dx(float dpValue){
+    public static int dip2px(float dpValue){
         float scale = mApplicationContext.getResources().getDisplayMetrics().density;
         return (int)(dpValue*scale + 0.5F);
     }
@@ -280,7 +280,6 @@ public class ExUtils {
         }
         return list;
     }
-
 
     /**
      * 获取当前的年、月、日 对应的时间
