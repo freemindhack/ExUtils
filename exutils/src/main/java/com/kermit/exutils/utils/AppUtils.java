@@ -13,22 +13,28 @@ import android.content.pm.PackageManager.NameNotFoundException;
 //跟App相关的辅助类
 public class AppUtils {
 
+    private static Context mApplicationContext;
+
+    public static void init(Context context){
+        mApplicationContext = context;
+    }
+
+
     private AppUtils() {
 		/* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
-
     }
 
     /**
      * 获取应用程序名称
      */
-    public static String getAppName(Context context) {
+    public static String getAppName() {
         try {
-            PackageManager packageManager = context.getPackageManager();
+            PackageManager packageManager = mApplicationContext.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
-                    context.getPackageName(), 0);
+                    mApplicationContext.getPackageName(), 0);
             int labelRes = packageInfo.applicationInfo.labelRes;
-            return context.getResources().getString(labelRes);
+            return mApplicationContext.getResources().getString(labelRes);
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -38,14 +44,13 @@ public class AppUtils {
     /**
      * [获取应用程序版本名称信息]
      *
-     * @param context
      * @return 当前应用的版本名称
      */
-    public static String getVersionName(Context context) {
+    public static String getVersionName() {
         try {
-            PackageManager packageManager = context.getPackageManager();
+            PackageManager packageManager = mApplicationContext.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
-                    context.getPackageName(), 0);
+                    mApplicationContext.getPackageName(), 0);
             return packageInfo.versionName;
 
         } catch (NameNotFoundException e) {

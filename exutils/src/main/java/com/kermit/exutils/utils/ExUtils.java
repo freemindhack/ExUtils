@@ -47,6 +47,9 @@ public class ExUtils {
     public static void initialize(Application app){
         mApplicationContext = app.getApplicationContext();
         ModelManager.init(mApplicationContext);
+        FileUtils.init(mApplicationContext);
+        NetUtils.init(mApplicationContext);
+        AppUtils.init(mApplicationContext);
     }
 
     public static int dip2px(float dpValue){
@@ -59,6 +62,14 @@ public class ExUtils {
         return (int)(pxValue/scale + 0.5F);
     }
 
+
+    public static void Toast(String text){
+        Toast.makeText(mApplicationContext, text, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void ToastLong(String text){
+        Toast.makeText(mApplicationContext, text, Toast.LENGTH_LONG).show();
+    }
 
     public static int getScreenWidth(){
         DisplayMetrics metrics = mApplicationContext.getResources().getDisplayMetrics();
@@ -103,14 +114,6 @@ public class ExUtils {
         double sb2 = Math.sin(b / 2.0D);
         double d = 2.0D * R * Math.asin(Math.sqrt(sa2 * sa2 + Math.cos(latitude1) * Math.cos(latitude2) * sb2 * sb2));
         return d;
-    }
-
-    public static void Toast(String text){
-        Toast.makeText(mApplicationContext, text, Toast.LENGTH_SHORT).show();
-    }
-
-    public static void ToastLong(String text){
-        Toast.makeText(mApplicationContext, text, Toast.LENGTH_LONG).show();
     }
 
     public static boolean isValidEmail(CharSequence target) {
@@ -288,7 +291,7 @@ public class ExUtils {
     @SuppressLint("SimpleDateFormat")
     public static String getTime() {
         Date d=new Date();
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy/MM/dd HH:mm");
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
         String dateNowStr=sdf.format(d);
         // System.out.println("格式化后的日期：" + dateNowStr);
         return dateNowStr;

@@ -5,7 +5,18 @@
 #### 使用方法
 
 - 在模块的gradle中添加
-```'compile com.kermit:exutils:1.0.7'```
+```
+    repositories {
+        // ...
+        maven { url "https://jitpack.io" }
+    }
+    ...
+
+	dependencies {
+	    compile 'com.github.Kermit95:ExUtils:v1.0.0'
+	}
+
+```
 
 - 在需要使用的activity中，初始化；如果要全局使用，则创建如下类，并初始化
 

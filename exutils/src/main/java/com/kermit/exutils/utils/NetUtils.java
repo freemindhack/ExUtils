@@ -15,19 +15,24 @@ import android.net.NetworkInfo;
 //跟网络相关的工具类
 public class NetUtils {
 
+    private static Context mApplicationContext;
+
     private NetUtils() {
 		/* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
+    public static void init(Context context){
+        mApplicationContext = context;
+    }
+
     /**
      * 判断网络是否可用
-     * @param context
      * @return
      */
-    public static boolean hasNetwork(Context context) {
+    public static boolean hasNetwork() {
         // 获取手机所有连接管理对象（包括wifi，net等连接的管理）
-        ConnectivityManager connectivity=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivity=(ConnectivityManager)mApplicationContext.getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivity != null) {
             // 获取网络连接管理的对象
             NetworkInfo info=connectivity.getActiveNetworkInfo();
@@ -44,8 +49,8 @@ public class NetUtils {
     /**
      * 判断是否是wifi连接
      */
-    public static boolean isWifi(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context
+    public static boolean isWifi() {
+        ConnectivityManager cm = (ConnectivityManager) mApplicationContext
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (cm == null) {
