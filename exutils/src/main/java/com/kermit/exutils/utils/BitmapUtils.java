@@ -2,9 +2,12 @@ package com.kermit.exutils.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -69,7 +72,7 @@ public class BitmapUtils {
      * @param bitmap
      * @param path
      */
-    public static void SaveBitmap(Bitmap bitmap, String path){
+    public static void saveBitmap(Bitmap bitmap, String path){
         File file = new File(path);
         try {
             if (!file.exists()) {
@@ -88,5 +91,61 @@ public class BitmapUtils {
             e.printStackTrace();
         }
     }
+
+    /**
+     *
+     * @param dir
+     * @param fileName
+     * @param bitmap
+     */
+    public static void savaBitmap(String dir, String fileName, Bitmap bitmap){
+        try {
+            File file = new File(dir, fileName);
+            if(file.exists()){
+                file.delete();
+            }else {
+                new File(dir).mkdirs();
+            }
+            file.createNewFile();
+            BufferedOutputStream os = new BufferedOutputStream(new FileOutputStream(file));
+            //生成流
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, os);
+            os.flush();
+            os.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     *
+     * @param drawable
+     * @return bitmap
+     */
+    public Bitmap drawable2Bitmap(Drawable drawable){
+        BitmapDrawable bd = (BitmapDrawable)drawable;
+        return bd.getBitmap();
+    }
+
+    /**
+     *
+     * @param bitmap
+     * @return drawable
+     */
+    public Drawable bitmap2Drawable(Bitmap bitmap){
+        return (Drawable) new BitmapDrawable(bitmap);
+    }
+
+    /**
+     *
+     * @param bm
+     * @return
+     */
+    public static byte[] convertBitmap2Bytes(Bitmap bm) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
+    }
+
 
 }

@@ -10,9 +10,12 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.kermit.exutils.model.ModelManager;
@@ -296,4 +299,40 @@ public class ExUtils {
         // System.out.println("格式化后的日期：" + dateNowStr);
         return dateNowStr;
     }
+
+    /**
+     *
+     * @param activity
+     * @param alpha
+     * 修改窗口透明度
+     */
+    public static void changeWindowsAlpha(Activity activity, float alpha){
+        WindowManager.LayoutParams params = activity.getWindow().getAttributes();
+        params.alpha = alpha;
+        activity.getWindow().setAttributes(params);
+    }
+
+    private static int number;
+    public static int getTextNumber(final EditText editText){
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                number = editText.getText().length();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        return number;
+    }
+
+
 }

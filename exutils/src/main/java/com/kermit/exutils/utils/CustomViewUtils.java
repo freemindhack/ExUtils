@@ -1,6 +1,8 @@
 package com.kermit.exutils.utils;
 
+import android.content.Context;
 import android.view.View;
+import android.view.ViewConfiguration;
 
 /**
  * Created by Kermit on 15-9-13.
@@ -31,5 +33,30 @@ public class CustomViewUtils {
         }
 
         return result;
+    }
+
+    /**
+     *
+     * @param context
+     * @return 系统slop常量
+     */
+    public int getSlop(Context context){
+        return ViewConfiguration.get(context).getScaledTouchSlop();
+    }
+
+    /**
+     *
+     * @param context
+     * @param s
+     * @return 返回系统fling常量
+     */
+    public int getFling(Context context, String s){
+        switch (s){
+            default:
+            case "max":
+                return ViewConfiguration.get(context).getScaledMaximumFlingVelocity();
+            case "min":
+                return ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
+        }
     }
 }
