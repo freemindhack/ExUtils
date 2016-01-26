@@ -31,7 +31,7 @@ public class FileUtils {
      * @param uniqueName
      * @return
      */
-    public File getDiskCacheDir(String uniqueName) {
+    public static File getDiskCacheDir(String uniqueName) {
         String cachePath;
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
                 || !Environment.isExternalStorageRemovable()) {
@@ -40,5 +40,16 @@ public class FileUtils {
             cachePath = mApplicationContext.getCacheDir().getPath();
         }
         return new File(cachePath + File.separator + uniqueName);
+    }
+
+    public static File getCacheFile(){
+        File cachePath;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+                    || !Environment.isExternalStorageRemovable()) {
+            cachePath = mApplicationContext.getExternalCacheDir();
+        } else {
+            cachePath = mApplicationContext.getCacheDir();
+        }
+        return cachePath;
     }
 }
